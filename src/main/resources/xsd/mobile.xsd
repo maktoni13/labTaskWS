@@ -1,0 +1,41 @@
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema"
+           xmlns:tns = "http://tutorialspoint/schemas"
+           targetNamespace = "http://tutorialspoint/schemas"
+           elementFormDefault = "qualified">
+
+    <xs:simpleType name = "type">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "Contract"/>
+            <xs:enumeration value = "PrePaid"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name = "mobile">
+        <xs:sequence>
+            <xs:element name = "name" type = "xs:string"/>
+            <xs:element name = "type" type = "tns:type"/>
+            <xs:element name = "price" type = "xs:int"/>
+            <xs:element name = "minutes" type = "xs:int"/>
+            <xs:element name = "internet" type = "xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getMobileTariffRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="name"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name = "getMobileTariffResponse">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name = "mobile" type = "tns:mobile"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+</xs:schema>

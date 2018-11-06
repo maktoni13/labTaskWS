@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4dd7479c-c72b-47d8-ae57-890c2bb899ca" activeEnvironment="Default" name="mobiles" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="7ff8a1a6-dfb5-4499-8d2f-ccd8924d4397" wsaVersion="NONE" name="MobilesPortSoap11" type="wsdl" bindingName="{http://tutorialspoint.com/definitions}MobilesPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/mobiles.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/mobiles.wsdl"><con:part><con:url>http://localhost:8080/ws/mobiles.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tutorialspoint.com/definitions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://tutorialspoint/schemas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tutorialspoint.com/definitions">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tutorialspoint/schemas" xmlns:tns="http://tutorialspoint/schemas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="type">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Contract"/>
+          <xs:enumeration value="PrePaid"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="mobile">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="type" type="tns:type"/>
+          <xs:element name="price" type="xs:int"/>
+          <xs:element name="minutes" type="xs:int"/>
+          <xs:element name="internet" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMobileTariffRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getMobileTariffResponse">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:element name="mobile" type="tns:mobile"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getMobileTariffRequest">
+    <wsdl:part element="sch:getMobileTariffRequest" name="getMobileTariffRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMobileTariffResponse">
+    <wsdl:part element="sch:getMobileTariffResponse" name="getMobileTariffResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MobilesPort">
+    <wsdl:operation name="getMobileTariff">
+      <wsdl:input message="tns:getMobileTariffRequest" name="getMobileTariffRequest"></wsdl:input>
+      <wsdl:output message="tns:getMobileTariffResponse" name="getMobileTariffResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MobilesPortSoap11" type="tns:MobilesPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getMobileTariff">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getMobileTariffRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMobileTariffResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MobilesPortService">
+    <wsdl:port binding="tns:MobilesPortSoap11" name="MobilesPortSoap11">
+      <soap:address location="http://localhost:8080/mobileService/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/mobileService/</con:endpoint></con:endpoints><con:operation id="0d357016-b2d1-4d74-a87d-6e9280e08a9a" isOneWay="false" action="" name="getMobileTariff" bindingOperationName="getMobileTariff" type="Request-Response" outputName="getMobileTariffResponse" inputName="getMobileTariffRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3fa1d4e6-07a2-40c0-a521-06d6af351cba" name="Request 1 ReD various case"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/mobileService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://tutorialspoint/schemas">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:getMobileTariffRequest>\r
+         <sch:name>ReD</sch:name>\r
+      </sch:getMobileTariffRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tutorialspoint.com/definitions/MobilesPort/getMobileTariffRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="39aacff7-a42b-46c2-93b6-2d3808b70c2d" name="Request 2 red lowercase"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/mobileService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://tutorialspoint/schemas">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:getMobileTariffRequest>\r
+         <sch:name>red</sch:name>\r
+      </sch:getMobileTariffRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tutorialspoint.com/definitions/MobilesPort/getMobileTariffRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="f356355a-cd3a-49f8-8a58-2da6f1da7ca2" name="Request 3 unlim"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/mobileService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://tutorialspoint/schemas">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <sch:getMobileTariffRequest>\r
+         <sch:name>unlim</sch:name>\r
+      </sch:getMobileTariffRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tutorialspoint.com/definitions/MobilesPort/getMobileTariffRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
